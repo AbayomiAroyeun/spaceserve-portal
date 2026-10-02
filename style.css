@@ -1,0 +1,416 @@
+/* CSS Reset & Dark Space Aesthetics */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --space-dark: #0a0b10;
+    --space-nebula: #161925;
+    --cosmic-blue: #3a86ff;
+    --stellar-glow: #00f5d4;
+    --text-light: #f8f9fa;
+    --text-muted: #adbac7;
+}
+
+body {
+    background-color: var(--space-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation Layout */
+header {
+    background-color: rgba(10, 11, 16, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.logo span { color: var(--stellar-glow); }
+.nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+.nav-links a:hover { color: var(--stellar-glow); }
+
+.cta-btn, .btn-outline {
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.cta-btn {
+    background: linear-gradient(135deg, var(--cosmic-blue), #8338ec);
+    color: white;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(58, 134, 255, 0.4);
+}
+
+.btn-outline {
+    border: 2px solid var(--cosmic-blue);
+    color: var(--text-light);
+}
+
+.btn-outline:hover { background-color: rgba(58, 134, 255, 0.1); }
+
+/* Hero Wrapper */
+.hero {
+    padding: 11rem 2rem 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Add this standard rule for global compatibility */
+}
+
+.hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+.hero-btns { display: flex; justify-content: center; gap: 1rem; }
+
+/* Grid Portfolio Structure (Enforced 4 Column Constraints) */
+.portfolio-section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.section-title h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.section-title p { color: var(--text-muted); }
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.portfolio-card {
+    background-color: var(--space-nebula);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.portfolio-card:hover { transform: translateY(-5px); border-color: var(--cosmic-blue); }
+
+/* Intermittent Image Slideshow Frame Module */
+.slider-container {
+    width: 100%;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active { opacity: 1; z-index: 2; }
+
+/* Placeholder and Future Proof Image Target Style */
+.placeholder-img, .slider-container img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 1rem;
+    object-fit: cover; /* Keeps real images scaling cleanly */
+}
+
+.portfolio-card h3 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+.card-tag { font-size: 0.75rem; color: var(--stellar-glow); text-transform: uppercase; margin-bottom: 0.8rem; font-weight: 700; letter-spacing: 0.5px; }
+.portfolio-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
+.app-link { color: var(--cosmic-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.app-link:hover { text-decoration: underline; }
+
+/* Formspree Waitlist Structural Container */
+.waitlist-form-section { background-color: var(--space-nebula); padding: 5rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.form-wrapper { max-width: 550px; margin: 0 auto; text-align: center; }
+.form-wrapper h2 { font-size: 2rem; margin-bottom: 0.8rem; }
+.form-wrapper p { color: var(--text-muted); margin-bottom: 2.5rem; }
+
+form { text-align: left; }
+.input-group { margin-bottom: 1.5rem; }
+.input-group label { display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 600; }
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    background-color: var(--space-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.input-group input:focus, .input-group select:focus { border-color: var(--stellar-glow); }
+.submit-form-btn { width: 100%; padding: 1rem; border: none; border-radius: 8px; background: linear-gradient(135deg, #8338ec, var(--cosmic-blue)); color: white; font-weight: 700; font-size: 1rem; cursor: pointer; transition: transform 0.2s; }
+.submit-form-btn:hover { transform: scale(1.01); }
+
+/* About and Footer */
+.about-section { padding: 5rem 2rem; }
+.about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.about-left h2 { font-size: 2rem; margin-bottom: 1rem; }
+.about-left blockquote { border-left: 3px solid var(--stellar-glow); padding-left: 1rem; color: var(--text-muted); font-style: italic; }
+.value-list { list-style: none; }
+.value-item { margin-bottom: 1rem; }
+.value-item strong { color: var(--stellar-glow); display: block; }
+footer { background: #050608; padding: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.legal-notice { max-width: 1200px; margin: 0 auto; color: rgba(255, 255, 255, 0.3); font-size: 0.8rem; text-align: center; }
+
+/* Responsive Media Controls - Adapts to Mobile Viewports dynamically */
+@media (max-width: 1100px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); } /* Changes to a 2-column pattern on tablet widths */
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.1rem; }
+    .portfolio-grid { grid-template-columns: 1fr; } /* Changes down to a robust single item column flow on mobile frames */
+    .about-container { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Dropdown Mechanics Layout */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--space-nebula);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+}
+
+/* Show dropdown when user hovers on desktop or when active on mobile */
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text-light) !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(58, 134, 255, 0.2);
+    color: var(--stellar-glow) !important;
+}
+
+.nav-links .whatsapp-nav-btn {
+    color: #25d366;
+    font-weight: 600;
+    border: 1px solid rgba(37, 211, 102, 0.2);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Target the Globe Icon for a smooth cosmic spin */
+.logo .logo-icon {
+    display: inline-block;
+    font-size: 1.6rem;
+    /* Adjust '6s' to make it spin faster (e.g., 3s) or slower (e.g., 12s) */
+    animation: globeSpin 6s linear infinite; 
+}
+
+/* Custom Orbital Spin Keyframes */
+@keyframes globeSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation Support Avatar Framing Rules */
+.nav-avatar-wrapper {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Cuts any regular image into a perfect circle */
+    object-fit: cover; /* Prevents your picture from squeezing or distorting */
+    border: 2px solid var(--stellar-glow); /* Adds a glowing premium outer border */
+    background-color: var(--space-dark);
+    transition: transform 0.2s ease, border-color 0.2s;
+}
+
+.nav-avatar-wrapper:hover .nav-avatar {
+    transform: scale(1.08); /* Gently expands avatar frame on mouse hover */
+    border-color: #25d366; /* Changes border to WhatsApp green on hover */
+}
+
+/* Green Live Chat Badge */
+.online-indicator {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 12px;
+    height: 12px;
+    background-color: #25d366; /* Vibrant WhatsApp Green */
+    border: 2px solid var(--space-dark); /* Separates indicator from image body */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #25d366;
+}
+
+/* Dropdown Layout Container */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #161925; /* Matches your dark space nebula theme */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 170px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+}
+
+/* Instantly shows menu when hovered on computers or active on mobile */
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: #f8f9fa !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(58, 134, 255, 0.2);
+    color: #00f5d4 !important; /* Glow accent */
+}
+.footer-links ul li a:hover {
+    color: var(--stellar-glow) !important;
+}
+
+/* Triggers a continuous, seamless rotation on the header globe icon */
+.header-globe-spin {
+    animation: smoothHeaderGlobe 7s linear infinite;
+    transform-origin: center;
+}
+
+/* Keyframes to loop the globe 360 degrees infinitely */
+@keyframes smoothHeaderGlobe {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 5D Autos Separate Page Navigation System */
+.auto-page-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.auto-nav-pills {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auto-nav-pills:hover {
+    transform: translateY(-2px);
+}
+
+/* Color Coding for Category Navigation Buttons */
+.onsale-pill { background-color: rgba(0, 245, 212, 0.15); color: var(--stellar-glow); border: 1px solid rgba(0, 245, 212, 0.3); }
+.onsale-pill:hover { box-shadow: 0 0 10px rgba(0, 245, 212, 0.3); }
+
+.upcoming-pill { background-color: rgba(58, 134, 255, 0.15); color: var(--cosmic-blue); border: 1px solid rgba(58, 134, 255, 0.3); }
+.upcoming-pill:hover { box-shadow: 0 0 10px rgba(58, 134, 255, 0.3); }
+
+.sold-pill { background-color: rgba(255, 51, 51, 0.15); color: #ff3333; border: 1px solid rgba(255, 51, 51, 0.3); }
+.sold-pill:hover { box-shadow: 0 0 10px rgba(255, 51, 51, 0.3); }

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Serve LLC | Pre-Launch Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo" style="text-decoration: none; display: flex; align-items: center;">
+                <!-- Fixed span/h1 mismatch and optimized text sizing parameters -->
+                <span class="logo-text"
+                    style="color: #abe55f; font-weight: 700; font-size: 1.8rem; margin: 0; line-height: 1;">SpaceServe</span>
+                <!-- Resized globe to a clean 1.5rem to scale beautifully across mobile phones -->
+                <span class="header-globe-spin"
+                    style="font-size: 1.5rem; display: inline-block; margin-left: 6px;">🌍</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#ecosystem">Platforms</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#waitlist-section">Join Waitlist</a></li>
+
+                <!-- Our Office Hybrid Image & Text Dropdown -->
+                <li class="dropdown">
+                    <div class="nav-avatar-wrapper" id="contactDropdownBtn"
+                        style="display: flex; align-items: center; gap: 8px; border: 1px solid rgba(37, 211, 102, 0.2); padding: 0.4rem 0.9rem; border-radius: 20px; cursor: pointer;">
+                        <img src="image/victoria.png" alt="Contact Support" class="nav-avatar"
+                            style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;">
+                        <span style="color: #25d366; font-weight: 600; font-size: 0.95rem;">Our Office</span>
+                    </div>
+                    <ul class="dropdown-menu" id="contactMenu">
+                        <li><a href="https://wa.me/2348159296162" target="_blank">📞 Support Line 1</a></li>
+                        <li><a href="https://wa.me/3472792154" target="_blank">📞 Support Line 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Bringing the World’s Best Experiences Straight to Your Orbit.</h1>
+        <p>We build and power cutting-edge digital ecosystems that solve real-world needs. Space Serve delivers elite
+            solutions from anywhere in the world—currently engineering next-gen architectures for launch.</p>
+        <div class="hero-btns">
+            <a href="#ecosystem" class="cta-btn">Explore Our Constellation</a>
+            <a href="#waitlist-section" class="btn-outline">Join Main Waitlist</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Ecosystem Section -->
+    <section class="portfolio-section" id="ecosystem">
+        <div class="section-title">
+            <h2>One Parent Company. Endless Horizons.</h2>
+            <p>Our specialized branches are currently in development. Discover what's launching next into orbit.</p>
+        </div>
+
+        <div class="portfolio-grid">
+
+            <!-- Column 1: 5D Autos Master Showcase -->
+            <article class="portfolio-card">
+                <div>
+                    <!-- Master Core Graphic Frame View -->
+                    <div class="slider-container" data-platform="Auto Sales">
+                        <!-- Fixed duplicate active slide state parameters -->
+                        <div class="slide"><img src="image/H1.jpeg" alt="5D Autos Fleet"></div>
+                        <div class="slide"><img src="image/H2.jpeg" alt="Car 2"></div>
+                        <div class="slide"><img src="image/H3.jpeg" alt="Car 3"></div>
+                        <div class="slide"><img src="image/H4.jpeg" alt="Car 4"></div>
+                        <div class="slide"><img src="image/H5.jpeg" alt="Car 5"></div>
+                        <div class="slide"><img src="image/H6.jpeg" alt="Car 6"></div>
+                        <div class="slide"><img src="image/H7.jpeg" alt="Car 7"></div>
+                        <div class="slide"><img src="image/S1.jpeg" alt="Car 8"></div>
+                        <div class="slide"><img src="image/S2.jpeg" alt="Car 9"></div>
+                        <div class="slide"><img src="image/S3.jpeg" alt="Car 10"></div>
+                        <div class="slide"><img src="image/S4.jpeg" alt="Car 11"></div>
+                        <div class="slide"><img src="image/S5.jpeg" alt="Car 12"></div>
+                    </div>
+
+                    <h3>5D Autos</h3>
+                    <div class="card-tag">Borderless Commerce</div>
+                    <p>Browse, inspect, and purchase brand-new,local and premium foreign-used vehicles online with a
+                        transparent digital buying experience.</p>
+
+                    <!-- Separate Page Navigation Triggers -->
+                    <div class="auto-page-links">
+                        <a href="available.html" class="auto-nav-pills onsale-pill">🏷️ Available Now</a>
+                        <a href="upcoming.html" class="auto-nav-pills upcoming-pill">🚢 Upcoming Fleet</a>
+                        <a href="sold.html" class="auto-nav-pills sold-pill">🔒 Sold</a>
+                    </div>
+                </div>
+                <a href="#waitlist-section" class="app-link waitlist-trigger" data-app="Auto Sales"
+                    style="display:block; margin-top:1.5rem;">Request Early Access &rarr;</a>
+            </article>
+
+            <!-- Column 2: FreeTax NG -->
+            <article class="portfolio-card">
+                <div>
+                    <div class="slider-container" data-platform="FreeTax NG">
+                        <div class="active slide"><img src="images/tax-dashboard.jpg" alt="FreeTax Dashboard Preview">
+                        </div>
+                        <div class="slide"><img src="images/tax-firs-form.jpg" alt="FIRS Compliant Formatter View">
+                        </div>
+                        <div class="slide"><img src="images/tax-security.jpg" alt="Secure Encryption Safeguards"></div>
+                    </div>
+                    <h3>FreeTax NG</h3>
+                    <div class="card-tag">Civic Tech / Formatter</div>
+                    <p>Streamline your civic duties. FreeTaxNG is a secure, automated software tool designed to format
+                        financial records perfectly for direct FIRS compliance.</p>
+                </div>
+                <a href="#waitlist-section" class="app-link waitlist-trigger" data-app="FreeTax Nigeria">Join the Beta
+                    Test &rarr;</a>
+            </article>
+
+            <!-- Column 3: Talking Drum -->
+            <article class="portfolio-card">
+                <div>
+                    <div class="slider-container" data-platform="Talking Drum">
+                        <div class="active slide"><img src="images/drum-feed.jpg" alt="Social Feed Interface Stream">
+                        </div>
+                        <div class="slide"><img src="images/drum-chat.jpg" alt="Secure Encrypted Chats"></div>
+                        <div class="slide"><img src="images/drum-community.jpg" alt="Communities Hub"></div>
+                    </div>
+                    <h3>Talking Drum</h3>
+                    <div class="card-tag">Database Management & Social Media Network</div>
+                    <p>A powerful, real-time social networking utility built for meaningful interaction. Express
+                        yourself and share media safely on a fast web framework and Database Management.</p>
+                </div>
+                <a href="#waitlist-section" class="app-link waitlist-trigger" data-app="Talking Drum">Reserve My
+                    Username &rarr;</a>
+            </article>
+
+            <!-- Column 4: Space Serve Hostels -->
+            <article class="portfolio-card">
+                <div>
+                    <div class="slider-container" data-platform="Hostels">
+                        <div class="active slide"><img src="images/hostel-room.jpg" alt="Premium Smart Room Layout">
+                        </div>
+                        <div class="slide"><img src="images/hostel-lounge.jpg" alt="Student Shared Study Lounge"></div>
+                        <div class="slide"><img src="images/hostel-security.jpg" alt="Smart Security System"></div>
+                    </div>
+                    <h3>Space Serve Hostels</h3>
+                    <div class="card-tag">Modern Hospitality</div>
+                    <p>Redefining student housing. We design and manage premium school hostels that offer secure, fully
+                        connected, and comfortable environments.</p>
+                </div>
+                <a href="#waitlist-section" class="app-link waitlist-trigger" data-app="Space Serve Hostels"
+                    style="display:block; margin-top:1.5rem;">Get Waitlisted &rarr;</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Unified Formspree Waitlist Input Form Section -->
+    <section class="waitlist-form-section" id="waitlist-section">
+        <div class="form-wrapper">
+            <h2>Secure Your Launch Position</h2>
+            <p>Select your primary interest and join the Space Serve inner circle for beta testing, launch priorities,
+                and rollout updates.</p>
+
+            <!-- IMPORTANT: Replace 'your-formspree-id' with your actual Formspree alphanumeric endpoint string key -->
+            <form action="https://formspree.io" method="POST" id="waitlistForm">
+                <div class="input-group">
+                    <label for="platformSelect">Target Platform Orbit</label>
+                    <select name="Selected Platform" id="platformSelect" required>
+                        <option value="General Ecosystem Support">All Ecosystem Platforms (General)</option>
+                        <option value="Auto Sales">5D Autos Marketplace</option>
+                        <option value="FreeTax Nigeria">FreeTax NG Software</option>
+                        <option value="Talking Drum">Talking Drum Social Media App</option>
+                        <option value="Space Serve Hostels">Space Serve Hostels Housing</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="emailInput">Email Address</label>
+                    <input type="email" name="Subscriber Email" id="emailInput"
+                        placeholder="Enter your email to lock in access..." required>
+                </div>
+
+                <option value="Auto Sales">5D Autos Marketplace</option>
+                <option value="FreeTax Nigeria">FreeTax NG Software</option>
+                <option value="Talking Drum">Talking Drum Social Media App</option>
+                <option value="Space Serve Hostels">Space Serve Hostels Housing</option>
+                </select>
+        </div>
+
+        <div class="input-group">
+            <label for="emailInput">Email Address</label>
+            <input type="email" name="Subscriber Email" id="emailInput"
+                placeholder="Enter your email to lock in access..." required>
+        </div>
+
+        <button type="submit" class="submit-form-btn">Lock In Priority Access</button>
+        </form>
+        </div>
+    </section>
+
+    <!-- About & Corporate Statements Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-left">
+                <h2>Defying Boundaries, Delivering Essentials.</h2>
+
+                <p
+                    style="margin-bottom: 0.5rem; color: var(--stellar-glow); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                    Our Vision</p>
+                <blockquote style="margin-bottom: 2rem;">
+                    "To be the ultimate digital launchpad that connects humanity to its essential daily needs, creating
+                    a borderless ecosystem of innovation, security, and world-class experiences across Africa and
+                    beyond."
+                </blockquote>
+
+                <p
+                    style="margin-bottom: 0.5rem; color: var(--cosmic-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                    Our Mission</p>
+                <blockquote style="margin-bottom: 1.5rem;">
+                    "At Space Serve, we defy boundaries. Our mission is to engineer advanced, user-centric platforms
+                    that safely deliver global solutions—from fintech and real-time social networking to commerce and
+                    hospitality—straight to the user's fingertips, ensuring the highest standards of reliability, speed,
+                    and modern experience."
+                </blockquote>
+            </div>
+            <div class="about-right">
+                <ul class="value-list">
+                    <li class="value-item">
+                        <strong>Stellar Experience</strong>
+                        <p>We obsess over UI/UX. Every web app we build must offer the best, latest, and most seamless
+                            experience in its industry.</p>
+                    </li>
+                    <li class="value-item">
+                        <strong>Absolute Security</strong>
+                        <p>From automated FIRS tax templates to social feeds, we deploy secure end-to-end data rules to
+                            enforce privacy.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="footer-spin">🌍</span> <span class="logo-text"
+                        style="color: #abe55f;">SpaceServe</span>
+                </a>
+                <p>Bringing the user their needs from anywhere in the world with the best latest experience.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#about">Our Mission</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">NDPA Compliance</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our Office</h4>
+                <ul>
+                    <li><a href="mailto:contact@spaceserve.ng">contact@spaceserve.ng</a></li>
+                    <li style="margin-top: 0.8rem;">
+                        <a href="https://google.com" target="_blank"
+                            style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.4; text-decoration: none; display: block; border-radius: 4px; transition: color 0.2s;">
+                            📍 39, Adesola Street, Kemta - Shomorin Road,Idi - Aba Abeokuta, Ogun, Nigeria.
+                            <span
+                                style="display: block; color: var(--cosmic-blue); font-size: 0.8rem; margin-top: 4px; font-weight: 600;">View
+                                on Google Maps &rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legal-notice">
+            © 2026 Space Serve LLC. All rights reserved. Space Serve LLC is a private limited liability company
+            registering with the Corporate Affairs Commission (CAC), Nigeria (RC: XXXXXXX). All ecosystem apps are
+            strategic products wholly owned by Space Serve LLC.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
