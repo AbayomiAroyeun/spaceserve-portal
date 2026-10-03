@@ -530,12 +530,36 @@ footer {
     }
 }
 
+/* 📱 Targeted Optimization Breakpoint for Samsung A20 (360px) & Small Screen Footprints */
 @media (max-width: 400px) {
-    .logo-text { font-size: 1.25rem !important; }
-    .logo .logo-ico { font-size: 1.1rem !important; }
-    .office-text { font-size: 0.8rem !important; }
+    .nav-container {
+        padding: 0.6rem 0.5rem !important; /* Shaves off edge padding to make room */
+        gap: 0.2rem !important;
+    }
+    .logo {
+        max-width: 45% !important; /* Limits the logo bounding box strictly */
+    }
+    .logo-text { 
+        font-size: 1.2rem !important; /* Scales down text so it fits comfortably */
+    }
+    .logo .logo-ico { 
+        font-size: 1.1rem !important; 
+    }
+    .office-text { 
+        font-size: 0.75rem !important; /* Shrinks the text layout without breaking alignment */
+    }
+    .nav-avatar-wrapper {
+        padding: 0.35rem 0.5rem !important; /* Shrinks container footprints */
+        gap: 4px !important;
+    }
+    .mobile-menu-toggle {
+        font-size: 1.5rem !important; /* Prevents button crowding on the right edge */
+    }
 }
 
-@media (max-width: 340px) {
-    .office-text { display: none !important; }
+/* Extreme safeguard layout for screens under 330px wide */
+@media (max-width: 330px) {
+    .office-text { 
+        display: none !important; /* Hides just the text "Our Office", leaving the avatar image visible */
+    }
 }
