@@ -12,32 +12,39 @@
     <!-- Header Navigation -->
     <header>
         <nav class="nav-container">
-            <a href="#" class="logo" style="text-decoration: none; display: flex; align-items: center;">
-                <!-- Fixed span/h1 mismatch and optimized text sizing parameters -->
+            <a href="#" class="logo"
+                style="text-decoration: none; display: flex; align-items: center; max-width: 50%; overflow: hidden;">
                 <span class="logo-text"
-                    style="color: #abe55f; font-weight: 700; font-size: 1.8rem; margin: 0; line-height: 1;">SpaceServe</span>
-                <!-- Resized globe to a clean 1.5rem to scale beautifully across mobile phones -->
-                <span class="header-globe-spin"
-                    style="font-size: 1.5rem; display: inline-block; margin-left: 6px;">🌍</span>
+                    style="color: #abe55f; font-weight: 700; font-size: 1.5rem; margin: 0; line-height: 1; white-space: nowrap;">SpaceServe</span>
+                <span class="header-globe-spin logo-ico"
+                    style="font-size: 1.3rem; display: inline-block; margin-left: 6px; flex-shrink: 0;">🌍</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#ecosystem">Platforms</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#waitlist-section">Join Waitlist</a></li>
 
-                <!-- Our Office Hybrid Image & Text Dropdown -->
-                <li class="dropdown">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <!-- Our Office Hybrid Image & Text Dropdown (Always Visible) -->
+                <div class="dropdown" id="dropdownContainer" style="list-style: none;">
                     <div class="nav-avatar-wrapper" id="contactDropdownBtn"
-                        style="display: flex; align-items: center; gap: 8px; border: 1px solid rgba(37, 211, 102, 0.2); padding: 0.4rem 0.9rem; border-radius: 20px; cursor: pointer;">
+                        style="display: flex; align-items: center; gap: 6px; border: 1px solid rgba(37, 211, 102, 0.2); padding: 0.4rem 0.8rem; border-radius: 20px; cursor: pointer; white-space: nowrap;">
                         <img src="image/victoria.png" alt="Contact Support" class="nav-avatar"
-                            style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;">
-                        <span style="color: #25d366; font-weight: 600; font-size: 0.95rem;">Our Office</span>
+                            style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                        <span class="office-text" style="color: #25d366; font-weight: 600; font-size: 0.85rem;">Our
+                            Office</span>
                     </div>
                     <ul class="dropdown-menu" id="contactMenu">
-                        <li><a href="https://wa.me/2348159296162" target="_blank">📞 Support Line 1</a></li>
-                        <li><a href="https://wa.me/3472792154" target="_blank">📞 Support Line 2</a></li>
+                        <li><a href="https://wa.me" target="_blank">📞 Support Line 1</a></li>
+                        <li><a href="https://wa.me" target="_blank">📞 Support Line 2</a></li>
                     </ul>
-                </li>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Toggle Navigation">☰</button>
+            </div>
+
+            <!-- Main Navigation Links (Fades in dynamically on mobile) -->
+            <ul class="nav-links" id="navLinksMenu">
+                <li><a href="#ecosystem" class="nav-item-link">Platforms</a></li>
+                <li><a href="#about" class="nav-item-link">About Us</a></li>
+                <li><a href="#waitlist-section" class="nav-item-link">Join Waitlist</a></li>
             </ul>
         </nav>
     </header>

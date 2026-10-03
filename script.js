@@ -1,39 +1,54 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// Dynamic Intermittent Slideshow Control Loop Logic
 document.addEventListener('DOMContentLoaded', () => {
-    const sliders = document.querySelectorAll('.slider-container');
     
+    // ==========================================================================
+    // 1. Smooth Scroll Navigation Anchors
+    // ==========================================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // ==========================================================================
+    // 2. Randomized Dynamic Slideshow Control Loop
+    // ==========================================================================
+    const sliders = document.querySelectorAll('.slider-container');
     sliders.forEach(slider => {
         const slides = slider.querySelectorAll('.slide');
         let currentSlideIndex = 0;
         const totalSlides = slides.length;
 
-        // Swaps active state items every 3.5 seconds
+        if (totalSlides <= 1) return; // Terminate early if only 1 image asset exists
+
         setInterval(() => {
+            // Un-set active class from the current visible frame
             slides[currentSlideIndex].classList.remove('active');
-            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            
+            // Randomizer Engine: Selects an alternate random index safely
+            let newSlideIndex = currentSlideIndex;
+            while (newSlideIndex === currentSlideIndex) {
+                newSlideIndex = Math.floor(Math.random() * totalSlides);
+            }
+            
+            currentSlideIndex = newSlideIndex;
             slides[currentSlideIndex].classList.add('active');
-        }, 3500);
+        }, 3500); // Transitions to a randomized frame every 3.5 seconds
     });
 
-    // Sync individual card triggers with dropdown select input fields
+    // ==========================================================================
+    // 3. Waitlist Form Synchronizer (Updated to match 'platform-choice')
+    // ==========================================================================
     const triggers = document.querySelectorAll('.waitlist-trigger');
-    const selectDropdown = document.getElementById('platformSelect');
+    const selectDropdown = document.getElementById('platform-choice'); // Patched ID selector mismatch
 
     triggers.forEach(trigger => {
         trigger.addEventListener('click', function() {
             const targetApp = this.getAttribute('data-app');
             if (selectDropdown) {
-                // Instantly changes form context select choice matching whatever button user clicked
                 for (let option of selectDropdown.options) {
                     if (option.value === targetApp) {
                         selectDropdown.value = targetApp;
@@ -43,43 +58,69 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-// Toggle the contact dropdown menu cleanly on smartphones
-const dropdownBtn = document.getElementById('contactDropdownBtn');
-if (dropdownBtn) {
-    dropdownBtn.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            e.preventDefault(); // Prevents jump triggers on small screens
-            this.parentElement.classList.toggle('active');
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const sliders = document.querySelectorAll('.slider-container');
+    // ==========================================================================
+    // 4. Mobile Dropdown Toggle Engine (Safe inside DOM Lifecycle)
+    // ==========================================================================
+    const dropdownContainer = document.getElementById('dropdownContainer');
+    const dropdownBtn = document.getElementById('contactDropdownBtn');
     
-    sliders.forEach(slider => {
-        const slides = slider.querySelectorAll('.slide');
-        let currentSlideIndex = 0;
-        const totalSlides = slides.length;
-
-        if (totalSlides <= 1) return; // No need to loop if there's only 1 image
-
-        setInterval(() => {
-            // Remove the 'active' class from the current visible car slide
-            slides[currentSlideIndex].classList.remove('active');
-            
-            // RANDOMIZER LOGIC: Pick a new random index that isn't the current one
-            let newSlideIndex = currentSlideIndex;
-            while (newSlideIndex === currentSlideIndex) {
-                newSlideIndex = Math.floor(Math.random() * totalSlides);
+    if (dropdownBtn && dropdownContainer) {
+        const handleDropdownToggle = function(e) {
+            // Enforce behavior constraints on small layouts
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                e.stopPropagation(); // Stops immediate document event delegation bubbles
+                dropdownContainer.classList.toggle('active');
             }
-            
-            currentSlideIndex = newSlideIndex;
-            
-            // Add the 'active' class to reveal the newly picked random car slide
-            slides[currentSlideIndex].classList.add('active');
-        }, 3500); // Changes image every 3.5 seconds
-    });
+        };
+
+        // Standard click fallback
+        dropdownBtn.addEventListener('click', handleDropdownToggle);
+        // Direct touch start listener to optimize latency profiles on iOS & Android WebKit
+        dropdownBtn.addEventListener('touchstart', handleDropdownToggle, { passive: false });
+    }
+
+    // ==========================================================================
+    // 5. Mobile Hamburger Navigation Menu Drawer Open / Close Logic
+    // ==========================================================================
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinksMenu = document.getElementById('navLinksMenu');
+    const navItemLinks = document.querySelectorAll('.nav-item-link');
+
+    if (mobileMenuBtn && navLinksMenu) {
+        // Toggle mobile menu drawer visibility state
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinksMenu.classList.toggle('drawer-open');
+            mobileMenuBtn.innerHTML = navLinksMenu.classList.contains('drawer-open') ? '✕' : '☰';
+        });
+
+        // Close the navigation drawer cleanly when any text link is tapped
+        navItemLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksMenu.classList.remove('drawer-open');
+                mobileMenuBtn.innerHTML = '☰';
+            });
+        });
+    }
+
+    // ==========================================================================
+    // 6. Unified Global Dismissal Event Engine (Fixes Tapping Conflicts)
+    // ==========================================================================
+    const closeAllMenusOnOutsideTap = (e) => {
+        // Dismiss "Our Office" Dropdown if clicked outside it
+        if (dropdownContainer && !dropdownContainer.contains(e.target)) {
+            dropdownContainer.classList.remove('active');
+        }
+        
+        // Dismiss Mobile Hamburger Menu if clicked outside it
+        if (navLinksMenu && mobileMenuBtn && !navLinksMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinksMenu.classList.remove('drawer-open');
+            mobileMenuBtn.innerHTML = '☰';
+        }
+    };
+
+    document.addEventListener('click', closeAllMenusOnOutsideTap);
+    document.addEventListener('touchstart', closeAllMenusOnOutsideTap, { passive: true });
 });
