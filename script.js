@@ -125,35 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchstart', closeAllMenusOnOutsideTap, { passive: true });
 
     // ==========================================================================
-    // 7. Victoria Avatar Lightbox Zoom Viewer Logic
+    // 7. Victoria Avatar Lightbox Zoom Viewer Logic (Touch Event Patch)
     // ==========================================================================
-    const supportAvatar = document.querySelector('.nav-avatar'); // Targets only the Victoria image
+    const supportAvatar = document.querySelector('.nav-avatar'); // Targets Victoria thumbnail
     const imageModal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
 
     if (supportAvatar && imageModal && modalImg) {
-        // Intercept clicks/taps on the Victoria thumbnail image to zoom her in
+
+        // Mobile-Optimized Instant Tap & Click Overlay Routine
         const openLightbox = (e) => {
-            e.stopPropagation(); // Stops the support line chat dropdown menu from flashing open
-            modalImg.src = supportAvatar.src; // Automatically fetches your victoria.png file path
+            e.preventDefault(); // Blocks default system tap processing delays
+            e.stopPropagation(); // Prevents the WhatsApp contact dropdown menu from clicking open behind it
+
+            modalImg.src = supportAvatar.src; // Pulls victoria.png image file path
             imageModal.style.display = 'flex';
 
+            // Triggers a hardware-accelerated fluid zoom pop effect frame
             setTimeout(() => {
                 modalImg.style.transform = 'scale(1)';
-            }, 10);
+            }, 20);
         };
 
+        // Bind standard laptop mouse actions
         supportAvatar.addEventListener('click', openLightbox);
-        supportAvatar.style.cursor = 'zoom-in'; // Displays a magnifying glass hover state on desktop
+        // Bind instant mobile phone touch interactions
+        supportAvatar.addEventListener('touchstart', openLightbox, { passive: false });
 
-        // Close and hide the lightbox when clicking the blurred dark background layout
-        const closeLightbox = () => {
+        // Laptop/Phone Dismissal Logic
+        const closeLightbox = (e) => {
+            e.preventDefault();
             modalImg.style.transform = 'scale(0.9)';
             imageModal.style.display = 'none';
         };
 
         imageModal.addEventListener('click', closeLightbox);
+        imageModal.addEventListener('touchstart', closeLightbox, { passive: true });
     }
-
 
 });
