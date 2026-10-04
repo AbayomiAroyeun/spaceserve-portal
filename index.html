@@ -232,20 +232,55 @@
         </div>
     </section>
 
-    <!-- Footer Module -->
+    <!-- Footer Module with Physical Address Block -->
+    <!-- Footer Module with Clickable Driving Directions Address -->
     <footer>
-        <div class="legal-notice">
-            <p>&copy; 2026 Space Serve LLC. All internal celestial systems operational. Early portal launch constraints
-                apply.</p>
+        <div
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;">
+
+            <!-- Corporate Clickable Address Display Bounding Box -->
+            <!-- Clicking this box triggers a cross-platform deep-link directly into mobile Map Apps -->
+            <a href="https://google.com" target="_blank" rel="noopener noreferrer"
+                style="text-decoration: none; display: block; max-width: 600px; width: 100%; transition: transform 0.2s ease, border-color 0.2s;"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='#00f5d4';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.05)';">
+                <div
+                    style="padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: border-color 0.2s;">
+                    <h4
+                        style="color: #abe55f; font-size: 1.1rem; margin-bottom: 0.6rem; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700;">
+                        📍 Space Serve Command Center</h4>
+                    <p
+                        style="color: var(--text-light); font-size: 1.05rem; line-height: 1.6; margin: 0; font-weight: 600; text-decoration: underline; text-underline-offset: 4px;">
+                        39, Adesola Street, Kemta - Somorin Road, Abeokuta, Ogun Nigeria.
+                    </p>
+                    <p
+                        style="color: var(--stellar-glow); font-size: 0.8rem; margin-top: 0.5rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                        🚗 Tap to Get Driving Directions &rarr;
+                    </p>
+                </div>
+            </a>
+
+            <!-- Legal and Operational Status Notice -->
+            <div class="legal-notice"
+                style="border-top: 1px solid rgba(255, 255, 255, 0.05); width: 100%; padding-top: 1.5rem;">
+                <p>&copy; 2026 Space Serve LLC. All internal celestial systems operational. Early portal launch
+                    constraints apply.</p>
+            </div>
+
         </div>
     </footer>
 
-       <!-- Lightbox Zoom Image Modal overlay Container (With Mobile Control Adjustments) -->
-    <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 11, 16, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 99999; justify-content: center; align-items: center; cursor: pointer;">
+
+    <!-- Lightbox Zoom Image Modal overlay Container (With Mobile Control Adjustments) -->
+    <div id="imageModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 11, 16, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 99999; justify-content: center; align-items: center; cursor: pointer;">
         <!-- Mobile Floating Close Hint Badge -->
-        <div style="position: absolute; top: 20px; right: 20px; color: #00f5d4; font-family: sans-serif; font-size: 0.9rem; font-weight: 700; background: rgba(22, 25, 37, 0.8); padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(0, 245, 212, 0.3);">✕ Tap Anywhere to Close</div>
-        
-        <img id="modalImg" src="" alt="Expanded View" style="max-width: 90%; max-height: 80%; border-radius: 16px; border: 2px solid #00f5d4; box-shadow: 0 0 30px rgba(0, 245, 212, 0.4); transform: scale(0.9); transition: transform 0.25s cubic-bezier(0.1, 0.76, 0.55, 0.94); object-fit: contain;">
+        <div
+            style="position: absolute; top: 20px; right: 20px; color: #00f5d4; font-family: sans-serif; font-size: 0.9rem; font-weight: 700; background: rgba(22, 25, 37, 0.8); padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(0, 245, 212, 0.3);">
+            ✕ Tap Anywhere to Close</div>
+
+        <img id="modalImg" src="" alt="Expanded View"
+            style="max-width: 90%; max-height: 80%; border-radius: 16px; border: 2px solid #00f5d4; box-shadow: 0 0 30px rgba(0, 245, 212, 0.4); transform: scale(0.9); transition: transform 0.25s cubic-bezier(0.1, 0.76, 0.55, 0.94); object-fit: contain;">
     </div>
 
 
