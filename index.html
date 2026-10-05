@@ -68,13 +68,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Bringing the World’s Best Experiences Straight to Your Orbit.</h1>
-        <p>We build and power cutting-edge digital ecosystems that solve real-world needs. Space Serve delivers elite
-            solutions from anywhere in the world—currently engineering next-gen architectures for launch.</p>
+        <!-- Cleared the static text out, assigned a target ID box and a structural typing cursor block -->
+        <p><span id="typewriter"></span><span class="typing-cursor">|</span></p>
         <div class="hero-btns">
             <a href="#ecosystem" class="cta-btn">Explore Our Constellation</a>
             <a href="#waitlist-section" class="btn-outline">Join Main Waitlist</a>
         </div>
     </section>
+
 
     <!-- Portfolio Ecosystem Section -->
     <section class="portfolio-section" id="ecosystem">
@@ -124,15 +125,47 @@
                     style="display:block; margin-top:1.5rem;">Request Early Access &rarr;</a>
             </article>
 
-            <!-- Column 2: FreeTax NG -->
+            <!-- Column 2: FreeTax NG (Cinematic AI Video Patch) -->
             <article class="portfolio-card">
                 <div>
-                    <div class="slider-container" data-platform="FreeTax NG">
-                        <div class="active slide"><img src="images/tax-dashboard.jpg" alt="FreeTax Dashboard Preview">
-                        </div>
-                        <div class="slide"><img src="images/tax-firs-form.jpg" alt="FIRS Compliant Formatter View">
-                        </div>
-                        <div class="slide"><img src="images/tax-security.jpg" alt="Secure Encryption Safeguards"></div>
+                    <!-- HTML5 Hardware-Accelerated Video Player Container Box -->
+                    <div class="slider-container" <!-- Column 2: FreeTax NG (Cinematic AI Video Patch) -->
+                        <article class="portfolio-card">
+                            <div>
+                                <!-- Changed class to 'video-container' so the image script doesn't conflict or hide it -->
+                                <div class="video-container" data-platform="FreeTax NG"
+                                    style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background-color: var(--space-dark); overflow: hidden; border-radius: 8px; margin-bottom: 1.2rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+
+                                    <video autoplay loop muted playsinline preload="auto" controlslist="nodownload"
+                                        style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+                                        <source src="image/tax-animated.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+
+                                </div>
+                                <h3>FreeTax NG</h3>
+                                <div class="card-tag">Civic Tech / Formatter</div>
+                                <p>Streamline your civic duties. FreeTaxNG is a secure, automated software tool designed
+                                    to format
+                                    financial records perfectly for direct FIRS compliance.</p>
+                            </div>
+                            <a href="#waitlist-section" class="app-link waitlist-trigger" data-app="FreeTax Nigeria"
+                                style="display:block; margin-top:1.5rem;">Join the Beta Test &rarr;</a>
+                        </article>
+                        data-platform="FreeTax NG"
+                        style="height: 160px; display: flex; align-items: center; justify-content: center;
+                        background-color: var(--space-dark); overflow: hidden; border-radius: 8px;">
+                        <!-- 
+                          • autoplay: Plays the clip immediately on page paint load
+                          • loop: Automatically repeats the animation timeline infinitely
+                          • muted: MUST BE ON or browsers will block auto-play actions
+                          • playsinline: CRUCIAL FOR PHONES: Forces video to play inside the card instead of opening fullscreen layout
+                        -->
+                        <video autoplay loop muted playsinline
+                            style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+                            <source src="image/tax-animated.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <h3>FreeTax NG</h3>
                     <div class="card-tag">Civic Tech / Formatter</div>
@@ -142,6 +175,8 @@
                 <a href="#waitlist-section" class="app-link waitlist-trigger" data-app="FreeTax Nigeria"
                     style="display:block; margin-top:1.5rem;">Join the Beta Test &rarr;</a>
             </article>
+
+
 
             <!-- Column 3: Talking Drum -->
             <article class="portfolio-card">

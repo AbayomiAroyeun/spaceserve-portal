@@ -18,10 +18,18 @@
 }
 
 body {
-    background-color: var(--space-dark);
+    background: radial-gradient(circle at center, #161925 0%, #0a0b10 100%);
+    background-size: 200% 200%;
+    animation: celestial-drift 15s ease infinite;
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+@keyframes celestial-drift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ==========================================================================
@@ -57,24 +65,26 @@ header {
     text-decoration: none;
 }
 
-.logo span { color: var(--stellar-glow); }
-
-.nav-links { 
-    display: flex; 
-    list-style: none; 
-    gap: 2rem; 
-    align-items: center; 
+.logo span {
+    color: var(--stellar-glow);
 }
 
-.nav-links a { 
-    color: var(--text-muted); 
-    text-decoration: none; 
-    font-size: 0.95rem; 
-    transition: color 0.3s; 
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
 }
 
-.nav-links a:hover { 
-    color: var(--stellar-glow); 
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--stellar-glow);
 }
 
 /* ==========================================================================
@@ -99,7 +109,6 @@ header {
     z-index: 2000;
 }
 
-/* Show dropdown via desktop hover OR when .active class is appended via JS */
 .dropdown:hover .dropdown-menu,
 .dropdown.active .dropdown-menu {
     display: block;
@@ -135,7 +144,8 @@ header {
 /* ==========================================================================
    4. Buttons & Global UI Actions
    ========================================================================== */
-.cta-btn, .btn-outline {
+.cta-btn,
+.btn-outline {
     padding: 0.6rem 1.4rem;
     border-radius: 30px;
     text-decoration: none;
@@ -150,8 +160,9 @@ header {
 }
 
 .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(58, 134, 255, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, #00f5d4, var(--cosmic-blue));
+    box-shadow: 0 0 25px rgba(0, 245, 212, 0.6);
 }
 
 .btn-outline {
@@ -159,12 +170,12 @@ header {
     color: var(--text-light);
 }
 
-.btn-outline:hover { 
-    background-color: rgba(58, 134, 255, 0.1); 
+.btn-outline:hover {
+    background-color: rgba(58, 134, 255, 0.1);
 }
 
 /* ==========================================================================
-   5. Hero Section
+   5. Hero Section & Typewriter Styles
    ========================================================================== */
 .hero {
     padding: 11rem 2rem 6rem 2rem;
@@ -183,39 +194,51 @@ header {
     background-clip: text;
 }
 
-.hero p { 
-    font-size: 1.2rem; 
-    color: var(--text-muted); 
-    margin-bottom: 2.5rem; 
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
 }
 
-.hero-btns { 
-    display: flex; 
-    justify-content: center; 
-    gap: 1rem; 
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.typing-cursor {
+    color: var(--stellar-glow);
+    font-weight: bold;
+    margin-left: 2px;
+    animation: terminal-blink 0.8s step-end infinite;
+}
+
+@keyframes terminal-blink {
+    from, to { color: transparent; }
+    50% { color: var(--stellar-glow); }
 }
 
 /* ==========================================================================
    6. Grid Portfolio Ecosystem Structure
    ========================================================================== */
-.portfolio-section { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 4rem 2rem; 
+.portfolio-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
 }
 
-.section-title { 
-    text-align: center; 
-    margin-bottom: 3rem; 
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
-.section-title h2 { 
-    font-size: 2.2rem; 
-    margin-bottom: 0.5rem; 
+.section-title h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.section-title p { 
-    color: var(--text-muted); 
+.section-title p {
+    color: var(--text-muted);
 }
 
 .portfolio-grid {
@@ -235,41 +258,41 @@ header {
     transition: transform 0.3s, border-color 0.3s;
 }
 
-.portfolio-card:hover { 
-    transform: translateY(-5px); 
-    border-color: var(--cosmic-blue); 
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-blue);
 }
 
-.portfolio-card h3 { 
-    font-size: 1.25rem; 
-    margin-bottom: 0.3rem; 
+.portfolio-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
 }
 
-.card-tag { 
-    font-size: 0.75rem; 
-    color: var(--stellar-glow); 
-    text-transform: uppercase; 
-    margin-bottom: 0.8rem; 
-    font-weight: 700; 
-    letter-spacing: 0.5px; 
+.card-tag {
+    font-size: 0.75rem;
+    color: var(--stellar-glow);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
-.portfolio-card p { 
-    color: var(--text-muted); 
-    font-size: 0.9rem; 
-    margin-bottom: 1.5rem; 
-    flex-grow: 1; 
+.portfolio-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
 }
 
-.app-link { 
-    color: var(--cosmic-blue); 
-    text-decoration: none; 
-    font-weight: 600; 
-    font-size: 0.9rem; 
+.app-link {
+    color: var(--cosmic-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.app-link:hover { 
-    text-decoration: underline; 
+.app-link:hover {
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -293,12 +316,13 @@ header {
     transition: opacity 0.8s ease-in-out;
 }
 
-.slide.active { 
-    opacity: 1; 
-    z-index: 2; 
+.slide.active {
+    opacity: 1;
+    z-index: 2;
 }
 
-.placeholder-img, .slider-container img {
+.placeholder-img,
+.slider-container img {
     width: 100%;
     height: 100%;
     display: flex;
@@ -312,45 +336,52 @@ header {
     object-fit: cover;
 }
 
+/* Shifting Electric Nebula Glow Patch for FreeTax Card */
+.portfolio-card:nth-child(2):hover {
+    border-color: var(--stellar-glow) !important;
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.25);
+    transform: translateY(-8px) scale(1.01);
+}
+
 /* ==========================================================================
    8. Formspree Waitlist Structural Container
    ========================================================================== */
-.waitlist-form-section { 
-    background-color: var(--space-nebula); 
-    padding: 5rem 2rem; 
-    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+.waitlist-form-section {
+    background-color: var(--space-nebula);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.form-wrapper { 
-    max-width: 550px; 
-    margin: 0 auto; 
-    text-align: center; 
+.form-wrapper {
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.form-wrapper h2 { 
-    font-size: 2rem; 
-    margin-bottom: 0.8rem; 
+.form-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
 }
 
-.form-wrapper p { 
-    color: var(--text-muted); 
-    margin-bottom: 2.5rem; 
+.form-wrapper p {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
 }
 
-form { 
-    text-align: left; 
+form {
+    text-align: left;
 }
 
-.input-group { 
-    margin-bottom: 1.5rem; 
+.input-group {
+    margin-bottom: 1.5rem;
 }
 
-.input-group label { 
-    display: block; 
-    font-size: 0.9rem; 
-    margin-bottom: 0.5rem; 
-    color: var(--text-light); 
-    font-weight: 600; 
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-weight: 600;
 }
 
 .input-group input, .input-group select {
@@ -365,201 +396,184 @@ form {
     transition: border 0.3s;
 }
 
-.input-group input:focus, .input-group select:focus { 
-    border-color: var(--stellar-glow); 
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--stellar-glow);
 }
 
-.submit-form-btn { 
-    width: 100%; 
-    padding: 1rem; 
-    border: none; 
-    border-radius: 8px; 
-    background: linear-gradient(135deg, #8338ec, var(--cosmic-blue)); 
-    color: white; 
-    font-weight: 700; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    transition: transform 0.2s; 
+.submit-form-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8338ec, var(--cosmic-blue));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.submit-form-btn:hover { 
-    transform: scale(1.01); 
+.submit-form-btn:hover {
+    transform: scale(1.01);
 }
 
 /* ==========================================================================
    9. About Us Section & Structural Elements
    ========================================================================== */
-.about-section { 
-    padding: 5rem 2rem; 
+.about-section {
+    padding: 5rem 2rem;
 }
 
-.about-container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 4rem; 
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
 }
 
-.about-left h2 { 
-    font-size: 2rem; 
-    margin-bottom: 1rem; 
+.about-left h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
-.about-left blockquote { 
-    border-left: 3px solid var(--stellar-glow); 
-    padding-left: 1rem; 
-    color: var(--text-muted); 
-    font-style: italic; 
+.about-left blockquote {
+    border-left: 3px solid var(--stellar-glow);
+    padding-left: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
 }
-
-.value-list { 
-    list-style: none; 
+.value-list {
+list-style: none;
 }
-
-.value-item { 
-    margin-bottom: 1rem; 
+.value-item {
+margin-bottom: 1rem;
 }
-
-.value-item strong { 
-    color: var(--stellar-glow); 
-    display: block; 
+.value-item strong {
+color: var(--stellar-glow);
+display: block;
 }
-
 /* ==========================================================================
-   10. Footer Section
-   ========================================================================== */
-footer { 
-    background: #050608; 
-    padding: 2rem; 
-    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+10. Footer Section
+========================================================================== */
+footer {
+background: #050608;
+padding: 2rem;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.legal-notice { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    color: rgba(255, 255, 255, 0.3); 
-    font-size: 0.8rem; 
-    text-align: center; 
+.legal-notice {
+max-width: 1200px;
+margin: 0 auto;
+color: rgba(255, 255, 255, 0.3);
+font-size: 0.8rem;
+text-align: center;
 }
-
 /* ==========================================================================
-   11. Balanced Mobile View Responsive Breakpoints & Mobile Drawer
-   ========================================================================== */
+11. Balanced Mobile View Responsive Breakpoints & Mobile Drawer
+========================================================================== */
 .mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text-light);
-    font-size: 1.8rem;
-    cursor: pointer;
-    z-index: 2500;
-    transition: color 0.3s;
+display: none;
+background: none;
+border: none;
+color: var(--text-light);
+font-size: 1.8rem;
+cursor: pointer;
+z-index: 2500;
+transition: color 0.3s;
 }
-
 .mobile-menu-toggle:hover {
-    color: var(--stellar-glow);
+color: var(--stellar-glow);
 }
-
 @media (max-width: 1100px) {
-    .portfolio-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-    }
+.portfolio-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 768px) {
-    .nav-container {
-        padding: 0.8rem 1rem;
-        width: 100%;
-    }
-
-    /* Reveal the hamburger menu toggle trigger */
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-    /* Transform the links into a clean, floating responsive menu tray */
-    .nav-links { 
-        position: fixed;
-        top: 0;
-        right: -100%; /* Hidden off-screen by default */
-        width: 75%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: rgba(22, 25, 37, 0.98);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        flex-direction: column;
-        justify-content: center;
-        gap: 2.5rem;
-        padding: 2rem;
-        transition: right 0.4s ease-in-out;
-        z-index: 2400;
-        list-style: none;
-    }
-
-    /* Slid-in state toggled via JavaScript */
-    .nav-links.drawer-open {
-        right: 0;
-    }
-    
-    /* Make text links block elements so they look great stacked vertically */
-    .nav-links li { 
-        display: block !important; 
-        text-align: center;
-    }
-
-    .nav-links a {
-        font-size: 1.3rem;
-        font-weight: 600;
-        display: block;
-    }
-
-    .hero h1 { font-size: 2.1rem; }
-    .hero p { font-size: 1rem; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .about-container { grid-template-columns: 1fr; gap: 2rem; }
-
-    /* Reposition dropdown alignment safely */
-    .dropdown-menu {
-        right: 0;
-        left: auto;
-        position: absolute;
-        top: 120%;
-    }
+.nav-container {
+padding: 0.8rem 1rem;
+width: 100%;
 }
-
-/* 📱 Targeted Optimization Breakpoint for Samsung A20 (360px) & Small Screen Footprints */
+.mobile-menu-toggle {
+display: block;
+}
+.nav-links {
+position: fixed;
+top: 0;
+right: -100%;
+width: 75%;
+max-width: 300px;
+height: 100vh;
+background-color: rgba(22, 25, 37, 0.98);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+flex-direction: column;
+justify-content: center;
+gap: 2.5rem;
+padding: 2rem;
+transition: right 0.4s ease-in-out;
+z-index: 2400;
+list-style: none;
+}
+.nav-links.drawer-open {
+right: 0;
+}
+.nav-links li {
+display: block !important;
+text-align: center;
+}
+.nav-links a {
+font-size: 1.3rem;
+font-weight: 600;
+display: block;
+}
+.hero h1 { font-size: 2.1rem; }
+.hero p { font-size: 1rem; }
+.portfolio-grid { grid-template-columns: 1fr; }
+.about-container { grid-template-columns: 1fr; gap: 2rem; }
+.dropdown-menu {
+right: 0;
+left: auto;
+position: absolute;
+top: 120%;
+}
+}
 @media (max-width: 400px) {
-    .nav-container {
-        padding: 0.6rem 0.5rem !important; /* Shaves off edge padding to make room */
-        gap: 0.2rem !important;
-    }
-    .logo {
-        max-width: 45% !important; /* Limits the logo bounding box strictly */
-    }
-    .logo-text { 
-        font-size: 1.2rem !important; /* Scales down text so it fits comfortably */
-    }
-    .logo .logo-ico { 
-        font-size: 1.1rem !important; 
-    }
-    .office-text { 
-        font-size: 0.75rem !important; /* Shrinks the text layout without breaking alignment */
-    }
-    .nav-avatar-wrapper {
-        padding: 0.35rem 0.5rem !important; /* Shrinks container footprints */
-        gap: 4px !important;
-    }
-    .mobile-menu-toggle {
-        font-size: 1.5rem !important; /* Prevents button crowding on the right edge */
-    }
+.nav-container {
+padding: 0.6rem 0.5rem !important;
+gap: 0.2rem !important;
 }
-
-/* Extreme safeguard layout for screens under 330px wide */
+.logo { max-width: 45% !important; }
+.logo-text { font-size: 1.2rem !important; }
+.logo .logo-ico { font-size: 1.1rem !important; }
+.office-text { font-size: 0.75rem !important; }
+.nav-avatar-wrapper {
+padding: 0.35rem 0.5rem !important;
+gap: 4px !important;
+}
+.mobile-menu-toggle { font-size: 1.5rem !important; }
+}
 @media (max-width: 330px) {
-    .office-text { 
-        display: none !important; /* Hides just the text "Our Office", leaving the avatar image visible */
-    }
+.office-text { display: none !important; }
+}
+/* ==========================================================================
+12. Victoria Avatar Polite Greeting Bow Animations
+========================================================================== */
+.nav-avatar {
+transform-origin: bottom center !important;
+backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+transform: perspective(1000px) rotateX(0deg);
+transition: transform 0.3s ease;
+}
+.nav-avatar-wrapper:hover .nav-avatar {
+transform: perspective(1000px) rotateX(15deg) translateY(2px) !important;
+}
+.avatar-welcome-bow {
+animation: corporate-bow-greeting 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
+}
+@keyframes corporate-bow-greeting {
+0% { transform: perspective(1000px) rotateX(0deg) translateY(0); }
+30% { transform: perspective(1000px) rotateX(20deg) translateY(3px); }
+70% { transform: perspective(1000px) rotateX(20deg) translateY(3px); }
+100% { transform: perspective(1000px) rotateX(0deg) translateY(0); }
 }

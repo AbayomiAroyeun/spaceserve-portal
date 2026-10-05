@@ -163,4 +163,58 @@ document.addEventListener('DOMContentLoaded', () => {
         imageModal.addEventListener('touchstart', closeLightbox, { passive: true });
     }
 
+    // ==========================================================================
+    // 8. Cinematic Typewriter Text Stream Array Engine (With Auto-Bow Hook)
+    // ==========================================================================
+    const targetSpan = document.getElementById('typewriter');
+    const missionStatement = "We build and power cutting-edge digital ecosystems that solve real-world needs. Space Serve delivers elite solutions from anywhere in the world—currently engineering next-gen architectures for launch.";
+
+    if (targetSpan) {
+        let characterIndex = 0;
+        const typingSpeedInMilliseconds = 40;
+
+        const streamTextCharacters = () => {
+            if (characterIndex < missionStatement.length) {
+                targetSpan.innerHTML += missionStatement.charAt(characterIndex);
+                characterIndex++;
+                setTimeout(streamTextCharacters, typingSpeedInMilliseconds);
+            } else {
+                // 1. Hide the flashing typing cursor line smoothly when typing finishes
+                const cursorElement = document.querySelector('.typing-cursor');
+                if (cursorElement) cursorElement.style.display = 'none';
+
+                // 2. TRIGGER HOOK: Target the image and append the keyframe class instantly
+                const avatarImg = document.querySelector('.nav-avatar');
+                if (avatarImg) {
+                    // Force-clear any hanging classes first
+                    avatarImg.classList.remove('avatar-welcome-bow');
+
+                    // Trigger a tiny browser repaint delay so it fires flawlessly
+                    setTimeout(() => {
+                        avatarImg.classList.add('avatar-welcome-bow');
+                    }, 50);
+
+                    // Clean removal protocol once the 1.2s animation track concludes
+                    setTimeout(() => {
+                        avatarImg.classList.remove('avatar-welcome-bow');
+                    }, 1300);
+                }
+            }
+        };
+
+        setTimeout(streamTextCharacters, 500);
+    }
+
+
+    // ==========================================================================
+    // 9. Local Video Player Autoplay Enforcement Trigger
+    // ==========================================================================
+    const localVideo = document.querySelector('.video-container video');
+    if (localVideo) {
+        // Force the video element to initialize playback programmatically
+        localVideo.play().catch(error => {
+            console.log("Local browser autoplay restriction blocked video: ", error);
+        });
+    }
+
 });
